@@ -57,7 +57,6 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-        var body = document.body;
         it('The menu element is hidden by default', function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
@@ -69,9 +68,9 @@ $(function() {
          it('toggle when menu icon is clicked', function() {
             var icon = document.querySelector('.menu-icon-link');
             icon.click();
-            expect(body.className).not.toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             icon.click();
-            expect(body.className).toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
          });
     });   
         
