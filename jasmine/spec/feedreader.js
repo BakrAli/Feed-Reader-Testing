@@ -89,8 +89,8 @@ $(function() {
         });
 
         it('entry has more than 0 entries', function(done) {
-            var EntriesNum = document.querySelector('.feed').getElementsByClassName('entry').length;
-            expect(EntriesNum).toBeGreaterThan(0);
+            var entriesNum  = document.querySelector('.feed').getElementsByClassName('entry').length;
+            expect(entriesNum).toBeGreaterThan(0);
             done();
         });
     });
