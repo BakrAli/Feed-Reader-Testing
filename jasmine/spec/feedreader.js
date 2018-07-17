@@ -58,8 +58,9 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+        var body = document.body;
         it('The menu element is hidden by default', function() {
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(body.className).toBe('menu-hidden');
         });
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -67,11 +68,11 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('toggle when menu icon is clicked', function() {
-            var icon = $('.menu-icon-link');
+            var icon = document.querySelector('.menu-icon-link');
             icon.click();
-            expect($('body').hasClass('menu-hidden')).toBe(false);
+            expect(body.className).not.toBe('menu-hidden');
             icon.click();
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(body.className).toBe('menu-hidden');
          });
     });   
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -88,10 +89,13 @@ $(function() {
             });
         });
 
-        it('entry has more than 0 entries', function() {
-            expect($('.entry .feed')).toBeDefined();
+        it('entry has more than 0 entries', function(done) {
+            var EntriesNum = document.querySelector('.feed').getElementsByClassName('entry').length;
+            expect(EntriesNum).toBeGreaterThan(0);
+            done();
         });
     });
+
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
